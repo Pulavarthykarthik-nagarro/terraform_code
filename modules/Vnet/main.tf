@@ -28,6 +28,7 @@ resource "azurerm_subnet" "subnet_endpoint" {
     address_prefixes = [var.cidr_endpoint_subnet]
     virtual_network_name = azurerm_virtual_network.virtual_network_shared.name
     resource_group_name = azurerm_resource_group.resource_group.name
+    #private_endpoint_network_policies_enabled = false  need to be checked
       
 }
 
@@ -65,7 +66,7 @@ resource "azurerm_network_interface" "nic_data_gateway_vm_one" {
       name = "ipconfig_nic_vm_gateway_one"
       subnet_id = azurerm_subnet.subnet_data_gateway.id
       private_ip_address_allocation = "Dynamic"
-      public_ip_address_id = azurerm_public_ip.public_ip_date_gateway_vm_one.id
+      #public_ip_address_id = azurerm_public_ip.public_ip_date_gateway_vm_one.id
     }
   
 }
@@ -96,7 +97,7 @@ resource "azurerm_network_interface" "nic_data_gateway_vm_two" {
       name = "ipconfig_nic_vm_gateway_two"
       subnet_id = azurerm_subnet.subnet_data_gateway.id
       private_ip_address_allocation = "Dynamic"
-      public_ip_address_id = azurerm_public_ip.public_ip_date_gateway_vm_two.id
+      #public_ip_address_id = azurerm_public_ip.public_ip_date_gateway_vm_two.id
     }
   
 }
@@ -111,5 +112,41 @@ resource "azurerm_public_ip" "public_ip_date_gateway_vm_two" {
     allocation_method = "Static"
     tags = var.tags_common
     
+  
+}
+
+
+
+
+#NIC for ADF Private Endpoint
+
+resource "azurerm_network_interface" "nic_adf_pvt_endpt" {
+    name = var.nic_adf_pvt_endpt_name
+    location = azurerm_resource_group.resource_group.location
+    resource_group_name = azurerm_resource_group.resource_group.name
+
+    ip_configuration {
+      name = "ipconfig_nic_adf_pvt_endpt"
+      subnet_id = azurerm_subnet.subnet_endpoint.id
+      private_ip_address_allocation = "Dynamic"
+      
+    }
+  
+}
+
+
+#NIC for SQL Server Private Endpoint
+
+resource "azurerm_network_interface" "nic_sqlserver_pvt_endpt" {
+    name = var.nic_sqlserver_pvt_endpt_name
+    location = azurerm_resource_group.resource_group.location
+    resource_group_name = azurerm_resource_group.resource_group.name
+
+    ip_configuration {
+      name = "ipconfig_nic_sqlserver_pvt_endpt"
+      subnet_id = azurerm_subnet.subnet_endpoint.id
+      private_ip_address_allocation = "Dynamic"
+      
+    }
   
 }

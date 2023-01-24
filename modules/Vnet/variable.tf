@@ -94,3 +94,17 @@ variable "public_ip_data_gateway_vm_name_two" {
     description = "Name of the Public Ip for Second VM in Data Gateway Subnet"
   
 }
+
+
+variable "nic_adf_pvt_endpt_name" {
+    type = string
+    description = "Name of the NIC for ADF Private Endpoint"
+  
+}
+
+variable "nic_sqlserver_pvt_endpt_name" {
+    type = string
+    description = "Name of the NIC for SQL Server Private Endpoint"
+  
+}
+
