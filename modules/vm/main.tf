@@ -1,12 +1,12 @@
 
 # First VM in Data Gateway Subnet
 
-resource "azurerm_virtual_machine" "vm_gateway_one" {
-    name = var.vm_gateway_one_name
+resource "azurerm_virtual_machine" "vm_data_gateway_1" {
+    name = var.vm_data_gateway_1_name
     location = var.region
     resource_group_name = var.resource_group_name
-    network_interface_ids = [var.vm_gateway_one_nic_id]
-    vm_size = var.vm_gateway_one_vm_size
+    network_interface_ids = [var.nic_id_vm_data_gateway_1] 
+    vm_size = var.vm_data_gateway_1_size
     delete_os_disk_on_termination = true  # to delete the OS disk automatically when deleting the VM
     delete_data_disks_on_termination = true # to delete the data disks automatically when deleting the VM
     admin_username =   # need to be checked
@@ -42,12 +42,12 @@ resource "azurerm_virtual_machine" "vm_gateway_one" {
 
 # Second VM in Data Gateway Subnet
 
-resource "azurerm_virtual_machine" "vm_gateway_two" {
-    name = var.vm_gateway_two_name
+resource "azurerm_virtual_machine" "vm_data_gateway_2" {
+    name = var.vm_data_gateway_2_name
     location = var.region
     resource_group_name = var.resource_group_name
-    network_interface_ids = [var.vm_gateway_two_nic_id]
-    vm_size = var.vm_gateway_vm_size
+    network_interface_ids = [var.nic_id_vm_data_gateway_2]
+    vm_size = var.vm_data_gateway_2_size
     delete_os_disk_on_termination = true  # to delete the OS disk automatically when deleting the VM
     delete_data_disks_on_termination = true # to delete the data disks automatically when deleting the VM
     admin_username =   # need to be checked

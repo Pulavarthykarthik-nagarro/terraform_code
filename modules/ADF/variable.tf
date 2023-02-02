@@ -1,4 +1,4 @@
-variable "pvt_endpt_adf_name" {
+variable "adf_private_endpoint_name" {
     type = string
     description = "Name of the ADF"
   
@@ -25,15 +25,27 @@ variable "azure_ir_name" {
 }
 
 
-variable "adf_pvt_endpt_sqldb_name" {
+variable "adf_private_endpoint_sqlserver_name" {
     type = string
     description = "Name of the ADF Managed Network Private Endpoint Connected to SQL DB"
   
 }
 
 
-variable "adf_pvt_endpt_sqldb_id" {
+variable "adf_private_endpoint_sqldb_id" {
     type = string
     description = "ID of the SQL Db"
+  
+}
+
+variable "adf_private_endpoint_adb_name" {
+    type = string
+    description = "Name of the ADF Managed Network Private Endpoint Connected to Azure Databricks"
+  
+}
+
+variable "adf_private_endpoint_adb_id" {
+    type = string
+    description = "ID of the Azure Databricks"
   
 }

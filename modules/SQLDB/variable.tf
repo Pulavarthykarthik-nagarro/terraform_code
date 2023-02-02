@@ -11,21 +11,21 @@ variable "region" {
   
 }
 
-variable "pvt_endpt_sqlserver_name" {
+variable "sqlserver_private_endpoint_name" {
     type = string
     description = "Name of the SQL Server"
   
 }
 
 
-variable "pvt_endpt_sqlserver_version" {
+variable "sqlserver_private_endpoint_version" {
     type = number
     description = "Version of the SQL Server"
   
 }
 
 
-variable "pvt_endpt_sqldb_name" {
+variable "sqldb_private_endpoint_name" {
     type = string
     description = "Name of the SQL Database"
   
