@@ -1,13 +1,13 @@
 #Private Endpoint for ADF
 
-resource "azurerm_private_endpoint" "private_endpoint_adf" {
-    name = var.private_endpoint_adf_name
+resource "azurerm_private_endpoint" "adf_private_endpoint" {
+    name = var.adf_private_endpoint_name
     resource_group_name = var.resource_group_name
     location = var.region
     subnet_id = var.private_endpoint_subnet_id
     private_service_connection {
-      name = var.private_service_connection_adf_name
-      private_connection_resource_id = var.private_connection_resource_id_adf #need to ask
+      name = var.adf_private_service_connection_name
+      private_connection_resource_id = var.adf_private_connection_resource_id #need to ask
       is_manual_connection = false
       subresource_names = ["datafactory"]#var.adf_subresource_name
     }
@@ -18,7 +18,7 @@ resource "azurerm_private_endpoint" "private_endpoint_adf" {
 
 #Private DNS Zone for Data Factory
 
-resource "azurerm_private_dns_zone" "dns_zone_adf" {
+resource "azurerm_private_dns_zone" "adf_dns_zone" {
     name = "privatelink.datafactory.azure.net"  # need to check
     resource_group_name = var.resource_group_name
 
@@ -27,10 +27,10 @@ resource "azurerm_private_dns_zone" "dns_zone_adf" {
 
 # Private DNS Zone Network Link for Data Factory
 
-resource "azurerm_private_dns_zone_virtual_network_link" "dns_network_link_adf" {
-    name = var.dns_network_link_adf_name
+resource "azurerm_private_dns_zone_virtual_network_link" "adf_dns_network_link" {
+    name = var.adf_dns_network_link_name
     resource_group_name = var.resource_group_name
-    private_dns_zone_name = azurerm_private_dns_zone.dns_zone_adf.name
+    private_dns_zone_name = azurerm_private_dns_zone.adf_dns_zone.name
     virtual_network_id = var.virtual_network_shared_id
     
   
@@ -39,12 +39,12 @@ resource "azurerm_private_dns_zone_virtual_network_link" "dns_network_link_adf" 
 
 # DNS A Record to register the private endpoint
 
-resource "azurerm_private_dns_a_record" "dns_a_adf" {
-    name = var.dns_a_adf_name
-    zone_name = azurerm_private_dns_zone.dns_zone_adf.name
+resource "azurerm_private_dns_a_record" "adf_dns_a_record" {
+    name = var.adf_dns_a_record_name
+    zone_name = azurerm_private_dns_zone.adf_dns_zone.name
     resource_group_name = var.resource_group_name
     ttl = 300
-    records = [var.nic_adf_id]
+    records = [azurerm_private_endpoint.adf_private_endpoint.private_service_connection[0].private_ip_address]
     
   
 }
@@ -52,14 +52,14 @@ resource "azurerm_private_dns_a_record" "dns_a_adf" {
 
 #Private Endpoint for SQL Server
 
-resource "azurerm_private_endpoint" "private_endpoint_sqlserver" {
-    name = var.private_endpoint_sqlserver_name
+resource "azurerm_private_endpoint" "sqlserver_private_endpoint" {
+    name = var.sqlserver_private_endpoint_name
     resource_group_name = var.resource_group_name
     location = var.region
     subnet_id = var.private_endpoint_subnet_id
     private_service_connection {
-      name = var.private_service_connection_sqlserver_name
-      private_connection_resource_id = var.private_connection_resource_id_sqlserver #need to ask
+      name = var.sqlserver_private_service_connection_name
+      private_connection_resource_id = var.sqlserver_private_connection_resource_id #need to ask
       is_manual_connection = false
       subresource_names = ["sqlServer"] #var.sqlserver_subresource_name
     }
@@ -77,10 +77,10 @@ resource "azurerm_private_dns_zone" "dns_zone_sqlserver" {
 
 # Private DNS Zone Network Link for SQL Server
 
-resource "azurerm_private_dns_zone_virtual_network_link" "dns_network_link_sqlserver" {
-    name = var.dns_network_link_sqlserver_name
+resource "azurerm_private_dns_zone_virtual_network_link" "sqlserver_dns_network_link" {
+    name = var.sqlserver_dns_network_link_name
     resource_group_name = var.resource_group_name
-    private_dns_zone_name = azurerm_private_dns_zone.dns_zone_sqlserver.id
+    private_dns_zone_name = azurerm_private_dns_zone.dns_zone_sqlserver.name
     virtual_network_id = var.virtual_network_shared_id
     
   
@@ -89,12 +89,12 @@ resource "azurerm_private_dns_zone_virtual_network_link" "dns_network_link_sqlse
 
 # DNS A Record to register the private endpoint for SQL Server
 
-resource "azurerm_private_dns_a_record" "dns_a_sqlserver" {
-    name = var.dns_a_sqlserver_name
+resource "azurerm_private_dns_a_record" "sql_dns_a_record" {
+    name = var.sql_dns_a_record_name
     zone_name = azurerm_private_dns_zone.dns_zone_sqlserver.name
     resource_group_name = var.resource_group_name
     ttl = 300
-    records = [var.nic_id_sqlserver]
+    records = [azurerm_private_endpoint.sqlserver_private_endpoint.private_service_connection[0].private_ip_address]
     
   
 }
@@ -104,14 +104,14 @@ resource "azurerm_private_dns_a_record" "dns_a_sqlserver" {
 
 #Private Endpoint for Azure Databricks
 
-resource "azurerm_private_endpoint" "private_endpoint_adb" {
-    name = var.private_endpoint_adb_name
+resource "azurerm_private_endpoint" "adb_private_endpoint" {
+    name = var.adb_private_endpoint_name
     resource_group_name = var.resource_group_name
     location = var.region
-    subnet_id = var.subnet_id_private_endpoint_adb
+    subnet_id = var.adb_container_subnet_id
     private_service_connection {
-      name = var.private_service_connection_adb_name
-      private_connection_resource_id = var.private_connection_resource_id_adb #need to ask
+      name = var.adb_private_service_connection_name
+      private_connection_resource_id = var.adb_private_connection_resource_id #need to ask
       is_manual_connection = false
       subresource_names = ["databricks_ui_api"]#var.adf_subresource_name
     }
@@ -122,7 +122,7 @@ resource "azurerm_private_endpoint" "private_endpoint_adb" {
 
 #Private DNS Zone for Azure Databricks
 
-resource "azurerm_private_dns_zone" "dns_zone_adb" {
+resource "azurerm_private_dns_zone" "adb_dns_zone" {
     name = "privatelink.azuredatabricks.net"  # need to check
     resource_group_name = var.resource_group_name
 
@@ -131,11 +131,11 @@ resource "azurerm_private_dns_zone" "dns_zone_adb" {
 
 # Private DNS Zone Network Link for Data Factory
 
-resource "azurerm_private_dns_zone_virtual_network_link" "dns_network_link_adb" {
-    name = var.dns_network_link_adb_name
+resource "azurerm_private_dns_zone_virtual_network_link" "adb_dns_network_link" {
+    name = var.adb_dns_network_link_name
     resource_group_name = var.resource_group_name
-    private_dns_zone_name = azurerm_private_dns_zone.dns_zone_adb.name
-    virtual_network_id = var.vnet_dns_network_link_adb_id
+    private_dns_zone_name = azurerm_private_dns_zone.adb_dns_zone.name
+    virtual_network_id = var.adb_virtual_network_id
     
   
 }
@@ -143,12 +143,12 @@ resource "azurerm_private_dns_zone_virtual_network_link" "dns_network_link_adb" 
 
 # DNS A Record to register the private endpoint
 
-resource "azurerm_private_dns_a_record" "dns_a_adb" {
-    name = var.dns_a_adb_name
-    zone_name = azurerm_private_dns_zone.dns_zone_adb.name
+resource "azurerm_private_dns_a_record" "adb_dns_a_record" {
+    name = var.adb_dns_a_record_name
+    zone_name = azurerm_private_dns_zone.adb_dns_zone.name
     resource_group_name = var.resource_group_name
     ttl = 300
-    records = [var.nic_id_adb]
+    records = [azurerm_private_endpoint.adb_private_endpoint.private_service_connection[0].private_ip_address]
     
   
 }

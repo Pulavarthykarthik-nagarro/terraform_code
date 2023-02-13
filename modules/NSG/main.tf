@@ -50,49 +50,49 @@ resource "azurerm_network_security_group" "nsg_data_gateway_subnet" {
 
 
 
-# #NSG for Azure Databricks Container Subnet
+#NSG for Azure Databricks Container Subnet
 
-# resource "azurerm_network_security_group" "nsg_adb_container_subnet" {
-#     name = var.nsg_adb_container_subnet_name
-#     location = var.region
-#     resource_group_name = var.resource_group_name
+resource "azurerm_network_security_group" "nsg_adb_container_subnet" {
+    name = var.nsg_adb_container_subnet_name
+    location = var.region
+    resource_group_name = var.resource_group_name
 
-#   security_rule {
-#     name                       = "test123"
-#     priority                   = 100
-#     direction                  = "Inbound"
-#     access                     = "Allow"
-#     protocol                   = "Tcp"
-#     source_port_range          = "*"
-#     destination_port_range     = "*"
-#     source_address_prefix      = "*"
-#     destination_address_prefix = "*"
-#   }
+  security_rule {
+    name                       = "test123"
+    priority                   = 100
+    direction                  = "Inbound"
+    access                     = "Deny"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "80"
+    source_address_prefix      = "136.185.196.233"
+    destination_address_prefix = "*"
+  }
 
-#   tags = var.tags_common
   
-# }
+  
+}
 
 
 # #NSG for Azure Databricks Host Subnet
 
-# resource "azurerm_network_security_group" "nsg_adb_host_subnet" {
-#     name = var.nsg_adb_host_subnet_name
-#     location = var.region
-#     resource_group_name = var.resource_group_name
+resource "azurerm_network_security_group" "nsg_adb_host_subnet" {
+    name = var.nsg_adb_host_subnet_name
+    location = var.region
+    resource_group_name = var.resource_group_name
 
-#   security_rule {
-#     name                       = "test123"
-#     priority                   = 100
-#     direction                  = "Inbound"
-#     access                     = "Allow"
-#     protocol                   = "Tcp"
-#     source_port_range          = "*"
-#     destination_port_range     = "*"
-#     source_address_prefix      = "*"
-#     destination_address_prefix = "*"
-#   }
+  security_rule {
+    name                       = "test123"
+    priority                   = 100
+    direction                  = "Inbound"
+    access                     = "Deny"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "80"
+    source_address_prefix      = "136.185.196.233"
+    destination_address_prefix = "*"
+  }
 
-#   tags = var.tags_common
+  #tags = var.tags_common
   
-# }
+}

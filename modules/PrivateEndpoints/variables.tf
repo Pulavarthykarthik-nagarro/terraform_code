@@ -31,7 +31,7 @@ variable "private_endpoint_subnet_id" {
 
 # Azure Data Factory Private End point Variables
 
-variable "dns_network_link_adf_name" {
+variable "adf_dns_network_link_name" {
     type = string
     description = "Name of the DNS Resolver Virtual Network Link for ADF"
 
@@ -40,7 +40,7 @@ variable "dns_network_link_adf_name" {
 
 
 
-variable "private_endpoint_adf_name" {
+variable "adf_private_endpoint_name" {
     type = string
     description = "Name of the ADF Private EndPoint"
 
@@ -54,14 +54,14 @@ variable "region" {
 }
 
 
-variable "private_service_connection_adf_name" {
+variable "adf_private_service_connection_name" {
     type = string
     description = "Private Service Connection Name for ADF"
   
 }
 
 
-variable "private_connection_resource_id_adf" {
+variable "adf_private_connection_resource_id" {
     type = string
     description = "ID for connecting ADF with Private Endpoint"
   
@@ -75,7 +75,7 @@ variable "private_connection_resource_id_adf" {
 # }
 
 
-variable "dns_a_adf_name" {
+variable "adf_dns_a_record_name" {
     type = string
     description = "Name of the Subresource"
   
@@ -83,11 +83,11 @@ variable "dns_a_adf_name" {
 
 
 
-variable "nic_adf_id" {
-    type = string
-    description = "NIC Id of ADF"
+# variable "nic_adf_id" {
+#     type = string
+#     description = "NIC Id of ADF"
   
-}
+# }
 
 
 #Variable of Private Endpoint for SQL DB
@@ -98,7 +98,7 @@ variable "nic_adf_id" {
   
 # }
 
-variable "dns_network_link_sqlserver_name" {
+variable "sqlserver_dns_network_link_name" {
     type = string
     description = "Name of the DNS Resolver Virtual Network Link for SQLDB"
 
@@ -106,7 +106,7 @@ variable "dns_network_link_sqlserver_name" {
 }
 
 
-variable "private_endpoint_sqlserver_name" {
+variable "sqlserver_private_endpoint_name" {
     type = string
     description = "Name of the SQL Server Private EndPoint"
 
@@ -115,7 +115,7 @@ variable "private_endpoint_sqlserver_name" {
 
 
 
-variable "private_service_connection_sqlserver_name" {
+variable "sqlserver_private_service_connection_name" {
     type = string
     description = "Private Service Connection Name for SQL Server"
   
@@ -123,31 +123,26 @@ variable "private_service_connection_sqlserver_name" {
 
 
 
-variable "private_connection_resource_id_sqlserver" {
+variable "sqlserver_private_connection_resource_id" {
     type = string
     description = "ID for connecting Private Endpoint with SQL Server"
   
 }
 
 
-variable "dns_a_sqlserver_name" {
+variable "sql_dns_a_record_name" {
     type = string
     description = "Name of the Subresource"
   
 }
 
 
-variable "nic_id_sqlserver" {
-    type = string
-    description = "NIC of SQL Server"
-  
-}
 
 
-#Variable of Private Endpoint for ADB
+# #Variable of Private Endpoint for ADB
 
 
-variable "private_endpoint_adb_name" {
+variable "adb_private_endpoint_name" {
     type = string
     description = "Name of the ADB Private EndPoint"
 
@@ -155,41 +150,41 @@ variable "private_endpoint_adb_name" {
 }
 
 
-variable "subnet_id_private_endpoint_adb" {
+variable "adb_container_subnet_id" {
     type = string
-    description = "Id of the Private Endpoint Subnet to which ADB is connected"
+    description = "Id of the Container Subnet to which ADB is connected"
   
 }
 
 
-variable "private_service_connection_adb_name" {
+variable "adb_private_service_connection_name" {
     type = string
     description = "Private Service Connection Name for ADB"
   
 }
 
-variable "private_connection_resource_id_adb" {
+variable "adb_private_connection_resource_id" {
     type = string
     description = "ID for connecting Private Endpoints with Azure Databricks"
   
 }
 
 
-variable "dns_network_link_adb_name" {
+variable "adb_dns_network_link_name" {
     type = string
     description = "Name of the DNS Resolver Virtual Network Link for ADB"
 
   
 }
 
-variable "vnet_dns_network_link_adb_id" {
+variable "adb_virtual_network_id" {
     type = string
     description = "Id of the ADB Virtual Network"
 
   
 }
 
-variable "dns_a_adb_name" {
+variable "adb_dns_a_record_name" {
     type = string
     description = "Name of the Subresource"
   
@@ -197,8 +192,8 @@ variable "dns_a_adb_name" {
 
 
 
-variable "nic_id_adb" {
-    type = string
-    description = "NIC Id of ADB"
+# variable "nic_id_adb" {
+#     type = string
+#     description = "NIC Id of ADB"
   
-}
+# }
