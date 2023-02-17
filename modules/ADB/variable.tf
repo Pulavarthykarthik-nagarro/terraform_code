@@ -56,14 +56,14 @@ variable "host_subnet_name" {
   
 }
 
-variable "host_subnet_network_security_group_association_id" {
+variable "container_subnet_network_security_group_association_id" {
     type = string
-    description = "Id of the Host Subnet Network Security Group "
+    description = "Id of the ADB Public Subnet Network Security Group "
   
 }
 
-variable "container_subnet_network_security_group_association_id" {
+variable "host_subnet_network_security_group_association_id" {
     type = string
-    description = "Id of the Container Subnet Network Security Group "
+    description = "Id of the ADB Private Subnet Network Security Group "
   
 }

@@ -57,8 +57,8 @@ resource "azurerm_subnet_network_security_group_association" "nsg_association_su
 
 #NIC for first VM Data Gateway
 
-resource "azurerm_network_interface" "nic_vm_data_gateway_1" {
-    name = var.nic_vm_data_gateway_1_name
+resource "azurerm_network_interface" "nic_vm_001" {
+    name = var.nic_vm_001_name
     location = azurerm_resource_group.resource_group.location
     resource_group_name = azurerm_resource_group.resource_group.name
 
@@ -88,8 +88,8 @@ resource "azurerm_network_interface" "nic_vm_data_gateway_1" {
 
 #NIC for Second VM Data Gateway
 
-resource "azurerm_network_interface" "nic_vm_data_gateway_2" {
-    name = var.nic_vm_data_gateway_2_name
+resource "azurerm_network_interface" "nic_vm_002" {
+    name = var.nic_vm_002_name
     location = azurerm_resource_group.resource_group.location
     resource_group_name = azurerm_resource_group.resource_group.name
 
@@ -118,38 +118,38 @@ resource "azurerm_network_interface" "nic_vm_data_gateway_2" {
 
 
 
-#NIC for ADF Private Endpoint
+# #NIC for ADF Private Endpoint
 
-resource "azurerm_network_interface" "nic_adf_private_endpoint" {
-    name = var.nic_adf_private_endpoint_name
-    location = azurerm_resource_group.resource_group.location
-    resource_group_name = azurerm_resource_group.resource_group.name
+# resource "azurerm_network_interface" "nic_adf_private_endpoint" {
+#     name = var.nic_adf_private_endpoint_name
+#     location = azurerm_resource_group.resource_group.location
+#     resource_group_name = azurerm_resource_group.resource_group.name
 
-    ip_configuration {
-      name = "ipconfig_nic_adf_pvt_endpoint"
-      subnet_id = azurerm_subnet.subnet_private_endpoint.id
-      private_ip_address_allocation = "Dynamic"
+#     ip_configuration {
+#       name = "ipconfig_nic_adf_pvt_endpoint"
+#       subnet_id = azurerm_subnet.subnet_private_endpoint.id
+#       private_ip_address_allocation = "Dynamic"
       
-    }
+#     }
   
-}
+# }
 
 
-#NIC for SQL Server Private Endpoint
+# #NIC for SQL Server Private Endpoint
 
-resource "azurerm_network_interface" "nic_sqlserver_private_endpoint" {
-    name = var.nic_sqlserver_private_endpoint_name
-    location = azurerm_resource_group.resource_group.location
-    resource_group_name = azurerm_resource_group.resource_group.name
+# resource "azurerm_network_interface" "nic_sqlserver_private_endpoint" {
+#     name = var.nic_sqlserver_private_endpoint_name
+#     location = azurerm_resource_group.resource_group.location
+#     resource_group_name = azurerm_resource_group.resource_group.name
 
-    ip_configuration {
-      name = "ipconfig_nic_sqlserver_pvt_endpt"
-      subnet_id = azurerm_subnet.subnet_private_endpoint.id
-      private_ip_address_allocation = "Dynamic"
+#     ip_configuration {
+#       name = "ipconfig_nic_sqlserver_pvt_endpt"
+#       subnet_id = azurerm_subnet.subnet_private_endpoint.id
+#       private_ip_address_allocation = "Dynamic"
       
-    }
+#     }
   
-}
+# }
 
 
 # #Virtual Network for Azure DataBricks
@@ -190,7 +190,7 @@ resource "azurerm_subnet" "adb_container_subnet" {
 
 resource "azurerm_subnet_network_security_group_association" "nsg_association_adb_container_subnet" {
     subnet_id = azurerm_subnet.adb_container_subnet.id
-    network_security_group_id = var.nsg_adb_container_subnet_id
+    network_security_group_id = var.nsg_adb_id
       
 }
 
@@ -222,26 +222,26 @@ resource "azurerm_subnet" "adb_host_subnet" {
 
 resource "azurerm_subnet_network_security_group_association" "nsg_association_adb_host_subnet" {
     subnet_id = azurerm_subnet.adb_host_subnet.id
-    network_security_group_id = var.nsg_adb_host_subnet_id
+    network_security_group_id = var.nsg_adb_id
       
 }
 
 
 #NIC for ADB Private Endpoint
 
-resource "azurerm_network_interface" "nic_adb_private_endpoint" {
-    name = var.nic_adb_private_endpoint_name
-    location = azurerm_resource_group.resource_group.location
-    resource_group_name = azurerm_resource_group.resource_group.name
+# resource "azurerm_network_interface" "nic_adb_private_endpoint" {
+#     name = var.nic_adb_private_endpoint_name
+#     location = azurerm_resource_group.resource_group.location
+#     resource_group_name = azurerm_resource_group.resource_group.name
 
-    ip_configuration {
-      name = "ipconfig_nic_adb_pvt_endpoint"
-      subnet_id = azurerm_subnet.adb_container_subnet.id
-      private_ip_address_allocation = "Dynamic"
+#     ip_configuration {
+#       name = "ipconfig_nic_adb_pvt_endpoint"
+#       subnet_id = azurerm_subnet.adb_container_subnet.id
+#       private_ip_address_allocation = "Dynamic"
       
-    }
+#     }
   
-}
+# }
 
 
 # Vnet Peering

@@ -75,7 +75,7 @@ variable "nsg_data_gateway_subnet_id" {
 }
 
 # VM in Data Gateway variables
-variable "nic_vm_data_gateway_1_name" {
+variable "nic_vm_001_name" {
     type = string
     description = "Name of the NIC for First VM in Data Gateway Subnet"
   
@@ -88,7 +88,7 @@ variable "nic_vm_data_gateway_1_name" {
 # }
 
 
-variable "nic_vm_data_gateway_2_name" {
+variable "nic_vm_002_name" {
     type = string
     description = "Name of the NIC for Second VM in Data Gateway Subnet"
   
@@ -100,21 +100,7 @@ variable "nic_vm_data_gateway_2_name" {
   
 # }
 
-# #ADF NIC Variable for private endpoint
 
-variable "nic_adf_private_endpoint_name" {
-    type = string
-    description = "Name of the NIC for ADF Private Endpoint"
-  
-}
-
-#SQL NIC Variable for private endpoint
-
-variable "nic_sqlserver_private_endpoint_name" {
-    type = string
-    description = "Name of the NIC for SQL Server Private Endpoint"
-  
-}
 
 # Vnet variables for ADB
 
@@ -154,7 +140,7 @@ variable "delegation_adb_container_subnet_name" {
 }
 
 
-variable "nsg_adb_container_subnet_id" {
+variable "nsg_adb_id" {
     type = string
     description = "NSG ID for Azure Databricks Container Subnet"
   
@@ -183,19 +169,19 @@ variable "delegation_adb_host_subnet_name" {
   
 }
 
-variable "nsg_adb_host_subnet_id" {
-    type = string
-    description = "NSG ID for Azure Databricks Host Subnet"
+# variable "nsg_adb_host_subnet_id" {
+#     type = string
+#     description = "NSG ID for Azure Databricks Host Subnet"
   
-}
+# }
 
 # NIC for ADB
 
-variable "nic_adb_private_endpoint_name" {
-    type = string
-    description = "Name of the NIC for ADB Private Endpoint"
+# variable "nic_adb_private_endpoint_name" {
+#     type = string
+#     description = "Name of the NIC for ADB Private Endpoint"
   
-}
+# }
 
 
 # Vnet peering

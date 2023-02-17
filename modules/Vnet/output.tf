@@ -29,12 +29,12 @@ output "virtual_network_shared_id" {
 }
 
 
-output "nic_adf_id" {
+# output "nic_adf_id" {
 
-  description = "NIC Id of ADF"
-  value = azurerm_network_interface.nic_adf_private_endpoint.ip_configuration
+#   description = "NIC Id of ADF"
+#   value = azurerm_network_interface.nic_adf_private_endpoint.ip_configuration
   
-}
+# }
 
 
 output "adb_virtual_network_id" {
@@ -86,17 +86,17 @@ output "adb_container_subnet_id" {
 
 
 
-output "vm_data_gateway_1_nic_id" {
+output "vm_001_nic_id" {
 
   description = "Data Gateway VM NIC ID"
-  value = azurerm_network_interface.nic_vm_data_gateway_1.id
+  value = azurerm_network_interface.nic_vm_001.id
   
 }
 
 
-output "vm_data_gateway_2_nic_id" {
+output "vm_002_nic_id" {
 
   description = "Data Gateway VM NIC ID"
-  value = azurerm_network_interface.nic_vm_data_gateway_2.id
+  value = azurerm_network_interface.nic_vm_002.id
   
 }

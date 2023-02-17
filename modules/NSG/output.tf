@@ -10,13 +10,13 @@ output "nsg_data_gateway_subnet_id" {
 }
 
 
-output "nsg_adb_container_subnet_id" {
-  description = "NSG ID for ADB Container Subnet"
-  value = azurerm_network_security_group.nsg_adb_container_subnet.id
+output "nsg_adb_id" {
+  description = "NSG ID for ADB"
+  value = azurerm_network_security_group.nsg_adb.id
 }
 
 
-output "nsg_adb_host_subnet_id" {
-  description = "NSG ID for ADB Host Subnet"
-  value = azurerm_network_security_group.nsg_adb_host_subnet.id
-}
+# output "nsg_adb_host_subnet_id" {
+#   description = "NSG ID for ADB Host Subnet"
+#   value = azurerm_network_security_group.nsg_adb_host_subnet.id
+# }

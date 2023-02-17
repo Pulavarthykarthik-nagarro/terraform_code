@@ -111,18 +111,17 @@ variable "adf_dns_network_link_name" {
 
 variable "adf_dns_a_record_name" {
     type = string
-    description = "Name of the Subresource"
+    description = "ADF DNS A Record Name"
   
 }
 
 
 
-
-variable "nic_adf_private_endpoint_name" {
-    type = string
-    description = "Name of the NIC for ADF Private Endpoint"
+# variable "nic_adf_private_endpoint_name" {
+#     type = string
+#     description = "Name of the NIC for ADF Private Endpoint"
   
-}
+# }
 
 
 variable "adf_name" {
@@ -212,16 +211,15 @@ variable "sqlserver_dns_network_link_name" {
 
 variable "sql_dns_a_record_name" {
     type = string
-    description = "Name of the Subresource"
+    description = "SQL DNS A Record Name"
   
 }
 
-
-variable "nic_sqlserver_private_endpoint_name" {
-    type = string
-    description = "Name of the NIC for SQL Server Private Endpoint"
+# variable "nic_sqlserver_private_endpoint_name" {
+#     type = string
+#     description = "Name of the NIC for SQL Server Private Endpoint"
   
-}
+# }
 
 
 variable "sqlserver_managed_private_endpoint_name" {
@@ -288,9 +286,9 @@ variable "delegation_adb_container_subnet_name" {
 }
 
 
-variable "nsg_adb_container_subnet_name" {
+variable "nsg_adb_name" {
     type = string
-    description = "Name of the NSG for Azure Databricks Container Subnet"
+    description = "Name of the NSG for Azure Databricks"
   
 }
 
@@ -314,11 +312,11 @@ variable "delegation_adb_host_subnet_name" {
   
 }
 
-variable "nsg_adb_host_subnet_name" {
-    type = string
-    description = "Name of the NSG for Azure Databricks Host Subnet"
+# variable "nsg_adb_host_subnet_name" {
+#     type = string
+#     description = "Name of the NSG for Azure Databricks Host Subnet"
   
-}
+# }
 
 
 variable "adb_private_endpoint_name" {
@@ -346,9 +344,10 @@ variable "adb_dns_network_link_name" {
 
 variable "adb_dns_a_record_name" {
     type = string
-    description = "Name of the Subresource"
+    description = "ADB DNS A Record Name"
   
 }
+
 
 
 variable "adb_managed_private_endpoint_name" {
@@ -357,11 +356,11 @@ variable "adb_managed_private_endpoint_name" {
   
 }
 
-variable "nic_adb_private_endpoint_name" {
-    type = string
-    description = "Name of the NIC for ADB Private Endpoint"
+# variable "nic_adb_private_endpoint_name" {
+#     type = string
+#     description = "Name of the NIC for ADB Private Endpoint"
   
-}
+# }
 
 
 # Vnet peering
@@ -377,28 +376,28 @@ variable "adb_shared_vnet_peering_name" {
 
 # Vm01
 
-variable "vm_data_gateway_1_name" {
+variable "vm_001_name" {
     type = string
     description = "Name of the First Virtual Machine in Data Gateway Subnet"
   
 }
 
 
-variable "vm_data_gateway_1_size" {
+variable "vm_001_size" {
     type = string
     description = "Size of the First Virtual Machine in Data Gateway Subnet"
   
 }
 
 
-variable "vm_data_gateway_1_admin_username" {
+variable "vm_001_admin_username" {
     type = string
     description = "Username for VM Data Gateway 1"
   
 }
 
 
-variable "vm_data_gateway_1_admin_password" {
+variable "vm_001_admin_password" {
     type = string
     description = "Password for VM Data Gateway 1"
   
@@ -406,14 +405,14 @@ variable "vm_data_gateway_1_admin_password" {
 
 
 
-variable "nic_vm_data_gateway_1_name" {
+variable "nic_vm_001_name" {
     type = string
     description = "Name of the NIC for First VM in Data Gateway Subnet"
   
 }
 
 
-variable "vm_data_gateway_1_computer_name" {
+variable "vm_001_computer_name" {
     type = string
     description = "Computer Name of VM Data Gateway 1"
   
@@ -422,21 +421,21 @@ variable "vm_data_gateway_1_computer_name" {
 
 # Vm02
 
-variable "vm_data_gateway_2_name" {
+variable "vm_002_name" {
     type = string
     description = "Name of the Second Virtual Machine in Data Gateway Subnet"
   
 }
 
 
-variable "vm_data_gateway_2_size" {
+variable "vm_002_size" {
     type = string
     description = "Size of the Second Virtual Machine in Data Gateway Subnet"
   
 }
 
 
-variable "vm_data_gateway_2_admin_username" {
+variable "vm_002_admin_username" {
     type = string
     description = "Username for VM Data Gateway 2"
   
@@ -444,7 +443,7 @@ variable "vm_data_gateway_2_admin_username" {
 
 
 
-variable "vm_data_gateway_2_admin_password" {
+variable "vm_002_admin_password" {
     type = string
     description = "Password for VM Data Gateway 2"
   
@@ -452,15 +451,205 @@ variable "vm_data_gateway_2_admin_password" {
 
 
 
-variable "nic_vm_data_gateway_2_name" {
+variable "nic_vm_002_name" {
     type = string
     description = "Name of the NIC for Second VM in Data Gateway Subnet"
   
 }
 
 
-variable "vm_data_gateway_2_computer_name" {
+variable "vm_002_computer_name" {
     type = string
     description = "Computer Name of VM Data Gateway 2"
+  
+}
+
+
+
+# Storage account  and Blob variables
+
+
+variable "adls_001_name" {
+    type = string
+    description = "Name of the Storage Account"
+  
+}
+
+
+
+
+
+variable "adls_001_container_name" {
+    type = string
+    description = "Name of the Container"
+  
+}
+
+
+
+variable "adls_001_blob_name" {
+    type = string
+    description = "Name of the Blob"
+  
+}
+
+
+
+variable "blob_private_endpoint_name" {
+    type = string
+    description = "Name of the Storage Blob Private EndPoint"
+
+  
+}
+
+
+variable "blob_private_service_connection_name" {
+    type = string
+    description = "Private Service Connection Name for Storage Blob"
+  
+}
+
+
+
+variable "blob_dns_network_link_name" {
+    type = string
+    description = "Name of the DNS Resolver Virtual Network Link for Storage Blob"
+
+  
+}
+
+
+
+variable "blob_dns_a_record_name" {
+    type = string
+    description = "Blob DNS A Record Name"
+  
+}
+
+
+
+variable "adls_managed_private_endpoint_name" {
+    type = string
+    description = "Name of the ADF Managed Network Private Endpoint Connected to ADLS"
+  
+}
+
+
+variable "adls_001_public_ip" {
+    type = string
+    description = "Public IP of ADLS"
+  
+}
+
+variable "dfs_name" {
+    type = string
+    description = "Name of the distributed file system"
+  
+}
+
+
+variable "dfs_private_endpoint_name" {
+    type = string
+    description = "Name of the dfs Private EndPoint"
+
+  
+}
+
+variable "dfs_private_service_connection_name" {
+    type = string
+    description = "Private Service Connection Name for Storage Blob"
+  
+}
+
+
+variable "dfs_dns_network_link_name" {
+    type = string
+    description = "Name of the DNS Resolver Virtual Network Link for dfs"
+
+  
+}
+
+
+variable "dfs_dns_a_record_name" {
+    type = string
+    description = "dfs DNS A Record Name"
+  
+}
+
+
+# Azure Synapse
+
+
+
+variable "synapse_adls_name" {
+    type = string
+    description = "Name of the Storage Account"
+  
+}
+
+
+variable "synapse_data_lake_name" {
+    type = string
+    description = "Name of the Synapse Data Lake Gen2 File System "
+  
+}
+
+variable "synapse_name" {
+    type = string
+    description = "Name of the Azure Synapse"
+  
+}
+
+
+variable "sql_login" {
+    type = string
+    description = "SQL Login"
+  
+}
+
+
+
+variable "sql_password" {
+    type = string
+    description = "SQL Password"
+  
+}
+
+variable "managed_resource_group_name" {
+    type = string
+    description = "Name of the Managed resource group"
+  
+}
+
+variable "synapse_private_endpoint_name" {
+    type = string
+    description = "Name of the Azure Synapse Private EndPoint"
+
+  
+}
+
+variable "synapse_private_service_connection_name" {
+    type = string
+    description = "Private Service Connection Name for Azure Synapse"
+  
+}
+
+variable "synapse_dns_network_link_name" {
+    type = string
+    description = "Name of the DNS Resolver Virtual Network Link for Azure Synapse"
+
+  
+}
+
+variable "synapse_dns_a_record_name" {
+    type = string
+    description = "Synapse DNS A Record Name"
+  
+}
+
+
+variable "synapse_managed_private_endpoint_name" {
+    type = string
+    description = "Name of the ADF Managed Network Private Endpoint Connected to Azure Synapse"
   
 }

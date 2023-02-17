@@ -68,16 +68,10 @@ variable "adf_private_connection_resource_id" {
 }
 
 
-# variable "adf_subresource_name" {
-#     type = string
-#     description = "Name of the Subresource"
-  
-# }
-
 
 variable "adf_dns_a_record_name" {
     type = string
-    description = "Name of the Subresource"
+    description = "ADF DNS A Record Name"
   
 }
 
@@ -132,7 +126,7 @@ variable "sqlserver_private_connection_resource_id" {
 
 variable "sql_dns_a_record_name" {
     type = string
-    description = "Name of the Subresource"
+    description = "SQL DNS A Record Name"
   
 }
 
@@ -186,7 +180,7 @@ variable "adb_virtual_network_id" {
 
 variable "adb_dns_a_record_name" {
     type = string
-    description = "Name of the Subresource"
+    description = "ADB DNS A Record Name"
   
 }
 
@@ -197,3 +191,128 @@ variable "adb_dns_a_record_name" {
 #     description = "NIC Id of ADB"
   
 # }
+
+
+
+#Variable of Private Endpoint for Storage blob
+
+
+variable "blob_private_endpoint_name" {
+    type = string
+    description = "Name of the Storage Blob Private EndPoint"
+
+  
+}
+
+
+variable "blob_private_service_connection_name" {
+    type = string
+    description = "Private Service Connection Name for Storage Blob"
+  
+}
+
+
+variable "adls_private_connection_resource_id" {
+    type = string
+    description = "Storage account ID for connecting Private Endpoint"
+  
+}
+
+
+
+
+variable "blob_dns_network_link_name" {
+    type = string
+    description = "Name of the DNS Resolver Virtual Network Link for Storage Blob"
+
+  
+}
+
+
+
+variable "blob_dns_a_record_name" {
+    type = string
+    description = "Blob DNS A Record Name"
+  
+}
+
+
+
+#Variable of Private Endpoint for dfs
+
+
+variable "dfs_private_endpoint_name" {
+    type = string
+    description = "Name of the dfs Private EndPoint"
+
+  
+}
+
+
+variable "dfs_private_service_connection_name" {
+    type = string
+    description = "Private Service Connection Name for Storage Blob"
+  
+}
+
+
+
+variable "dfs_dns_network_link_name" {
+    type = string
+    description = "Name of the DNS Resolver Virtual Network Link for dfs"
+
+  
+}
+
+
+
+variable "dfs_dns_a_record_name" {
+    type = string
+    description = "dfs DNS A Record Name"
+  
+}
+
+
+
+
+
+#Variable of Private Endpoint for Azure Synapse
+
+variable "synapse_private_endpoint_name" {
+    type = string
+    description = "Name of the Azure Synapse Private EndPoint"
+
+  
+}
+
+
+variable "synapse_private_service_connection_name" {
+    type = string
+    description = "Private Service Connection Name for Azure Synapse"
+  
+}
+
+
+variable "synapse_private_connection_resource_id" {
+    type = string
+    description = "ID for connecting Private Endpoint with Azure Synapse"
+  
+}
+
+
+
+
+variable "synapse_dns_network_link_name" {
+    type = string
+    description = "Name of the DNS Resolver Virtual Network Link for Azure Synapse"
+
+  
+}
+
+
+
+variable "synapse_dns_a_record_name" {
+    type = string
+    description = "Synapse DNS A Record Name"
+  
+}

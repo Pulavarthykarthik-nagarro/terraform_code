@@ -49,3 +49,31 @@ variable "adb_private_connection_resource_id" {
     description = "ID of the Azure Databricks"
   
 }
+
+
+variable "adls_managed_private_endpoint_name" {
+    type = string
+    description = "Name of the ADF Managed Network Private Endpoint Connected to ADLS"
+  
+}
+
+
+variable "adls_private_connection_resource_id" {
+    type = string
+    description = "ID of the ADLS"
+  
+}
+
+
+variable "synapse_managed_private_endpoint_name" {
+    type = string
+    description = "Name of the ADF Managed Network Private Endpoint Connected to Azure Synapse"
+  
+}
+
+
+variable "synapse_private_connection_resource_id" {
+    type = string
+    description = "ID of the ADLS"
+  
+}
