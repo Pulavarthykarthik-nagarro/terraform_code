@@ -197,19 +197,19 @@ variable "adb_dns_a_record_name" {
 #Variable of Private Endpoint for Storage blob
 
 
-variable "blob_private_endpoint_name" {
-    type = string
-    description = "Name of the Storage Blob Private EndPoint"
+# variable "blob_private_endpoint_name" {
+#     type = string
+#     description = "Name of the Storage Blob Private EndPoint"
 
   
-}
+# }
 
 
-variable "blob_private_service_connection_name" {
-    type = string
-    description = "Private Service Connection Name for Storage Blob"
+# variable "blob_private_service_connection_name" {
+#     type = string
+#     description = "Private Service Connection Name for Storage Blob"
   
-}
+# }
 
 
 variable "adls_private_connection_resource_id" {
@@ -221,20 +221,20 @@ variable "adls_private_connection_resource_id" {
 
 
 
-variable "blob_dns_network_link_name" {
-    type = string
-    description = "Name of the DNS Resolver Virtual Network Link for Storage Blob"
+# variable "blob_dns_network_link_name" {
+#     type = string
+#     description = "Name of the DNS Resolver Virtual Network Link for Storage Blob"
 
   
-}
+# }
 
 
 
-variable "blob_dns_a_record_name" {
-    type = string
-    description = "Blob DNS A Record Name"
+# variable "blob_dns_a_record_name" {
+#     type = string
+#     description = "Blob DNS A Record Name"
   
-}
+# }
 
 
 
@@ -276,43 +276,84 @@ variable "dfs_dns_a_record_name" {
 
 
 
+
 #Variable of Private Endpoint for Azure Synapse
 
-variable "synapse_private_endpoint_name" {
+# variable "synapse_private_endpoint_name" {
+#     type = string
+#     description = "Name of the Azure Synapse Private EndPoint"
+
+  
+# }
+
+
+# variable "synapse_private_service_connection_name" {
+#     type = string
+#     description = "Private Service Connection Name for Azure Synapse"
+  
+# }
+
+
+# variable "synapse_private_connection_resource_id" {
+#     type = string
+#     description = "ID for connecting Private Endpoint with Azure Synapse"
+  
+# }
+
+
+
+
+# variable "synapse_dns_network_link_name" {
+#     type = string
+#     description = "Name of the DNS Resolver Virtual Network Link for Azure Synapse"
+
+  
+# }
+
+
+
+# variable "synapse_dns_a_record_name" {
+#     type = string
+#     description = "Synapse DNS A Record Name"
+  
+# }
+
+#KeyVault Variables
+
+variable "keyvault_private_endpoint_name" {
     type = string
-    description = "Name of the Azure Synapse Private EndPoint"
+    description = "Name of the KeyVault Private EndPoint"
 
   
 }
 
 
-variable "synapse_private_service_connection_name" {
+
+
+variable "keyvault_private_service_connection_name" {
     type = string
-    description = "Private Service Connection Name for Azure Synapse"
+    description = "Private Service Connection Name for KeyValut"
+  
+}
+
+variable "keyvault_private_connection_resource_id" {
+    type = string
+    description = "ID for connecting Private Endpoints with KeyValut"
   
 }
 
 
-variable "synapse_private_connection_resource_id" {
+variable "keyvault_dns_network_link_name" {
     type = string
-    description = "ID for connecting Private Endpoint with Azure Synapse"
-  
-}
-
-
-
-
-variable "synapse_dns_network_link_name" {
-    type = string
-    description = "Name of the DNS Resolver Virtual Network Link for Azure Synapse"
+    description = "Name of the DNS Resolver Virtual Network Link for KeyVault"
 
   
 }
 
 
 
-variable "synapse_dns_a_record_name" {
+variable "keyvault_dns_a_record_name" {
     type = string
-    description = "Synapse DNS A Record Name"
+    description = "Key Vault DNS A Record Name"
   
 }

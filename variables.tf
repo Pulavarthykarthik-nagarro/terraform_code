@@ -479,52 +479,52 @@ variable "adls_001_name" {
 
 
 
-variable "adls_001_container_name" {
-    type = string
-    description = "Name of the Container"
+# variable "adls_001_container_name" {
+#     type = string
+#     description = "Name of the Container"
   
-}
+# }
 
 
 
-variable "adls_001_blob_name" {
-    type = string
-    description = "Name of the Blob"
+# variable "adls_001_blob_name" {
+#     type = string
+#     description = "Name of the Blob"
   
-}
+# }
 
 
 
-variable "blob_private_endpoint_name" {
-    type = string
-    description = "Name of the Storage Blob Private EndPoint"
-
-  
-}
-
-
-variable "blob_private_service_connection_name" {
-    type = string
-    description = "Private Service Connection Name for Storage Blob"
-  
-}
-
-
-
-variable "blob_dns_network_link_name" {
-    type = string
-    description = "Name of the DNS Resolver Virtual Network Link for Storage Blob"
+# variable "blob_private_endpoint_name" {
+#     type = string
+#     description = "Name of the Storage Blob Private EndPoint"
 
   
-}
+# }
 
 
-
-variable "blob_dns_a_record_name" {
-    type = string
-    description = "Blob DNS A Record Name"
+# variable "blob_private_service_connection_name" {
+#     type = string
+#     description = "Private Service Connection Name for Storage Blob"
   
-}
+# }
+
+
+
+# variable "blob_dns_network_link_name" {
+#     type = string
+#     description = "Name of the DNS Resolver Virtual Network Link for Storage Blob"
+
+  
+# }
+
+
+
+# variable "blob_dns_a_record_name" {
+#     type = string
+#     description = "Blob DNS A Record Name"
+  
+# }
 
 
 
@@ -535,11 +535,11 @@ variable "adls_managed_private_endpoint_name" {
 }
 
 
-variable "adls_001_public_ip" {
-    type = string
-    description = "Public IP of ADLS"
+# variable "adls_001_public_ip" {
+#     type = string
+#     description = "Public IP of ADLS"
   
-}
+# }
 
 variable "dfs_name" {
     type = string
@@ -581,75 +581,115 @@ variable "dfs_dns_a_record_name" {
 
 
 
-variable "synapse_adls_name" {
+# variable "synapse_adls_name" {
+#     type = string
+#     description = "Name of the Storage Account"
+  
+# }
+
+
+# variable "synapse_data_lake_name" {
+#     type = string
+#     description = "Name of the Synapse Data Lake Gen2 File System "
+  
+# }
+
+# variable "synapse_name" {
+#     type = string
+#     description = "Name of the Azure Synapse"
+  
+# }
+
+
+# variable "sql_login" {
+#     type = string
+#     description = "SQL Login"
+  
+# }
+
+
+
+# variable "sql_password" {
+#     type = string
+#     description = "SQL Password"
+  
+# }
+
+# variable "managed_resource_group_name" {
+#     type = string
+#     description = "Name of the Managed resource group"
+  
+# }
+
+# variable "synapse_private_endpoint_name" {
+#     type = string
+#     description = "Name of the Azure Synapse Private EndPoint"
+
+  
+# }
+
+# variable "synapse_private_service_connection_name" {
+#     type = string
+#     description = "Private Service Connection Name for Azure Synapse"
+  
+# }
+
+# variable "synapse_dns_network_link_name" {
+#     type = string
+#     description = "Name of the DNS Resolver Virtual Network Link for Azure Synapse"
+
+  
+# }
+
+# variable "synapse_dns_a_record_name" {
+#     type = string
+#     description = "Synapse DNS A Record Name"
+  
+# }
+
+
+# variable "synapse_managed_private_endpoint_name" {
+#     type = string
+#     description = "Name of the ADF Managed Network Private Endpoint Connected to Azure Synapse"
+  
+# }
+
+
+#KeyVault
+
+
+variable "keyvalut_name" {
     type = string
-    description = "Name of the Storage Account"
+    description = "Name of the Azure Key Vault"
   
 }
 
 
-variable "synapse_data_lake_name" {
+variable "keyvault_private_endpoint_name" {
     type = string
-    description = "Name of the Synapse Data Lake Gen2 File System "
-  
-}
+    description = "Name of the KeyVault Private EndPoint"
 
-variable "synapse_name" {
-    type = string
-    description = "Name of the Azure Synapse"
   
 }
 
 
-variable "sql_login" {
+variable "keyvault_private_service_connection_name" {
     type = string
-    description = "SQL Login"
+    description = "Private Service Connection Name for KeyValut"
   
 }
 
 
-
-variable "sql_password" {
+variable "keyvault_dns_network_link_name" {
     type = string
-    description = "SQL Password"
-  
-}
-
-variable "managed_resource_group_name" {
-    type = string
-    description = "Name of the Managed resource group"
-  
-}
-
-variable "synapse_private_endpoint_name" {
-    type = string
-    description = "Name of the Azure Synapse Private EndPoint"
+    description = "Name of the DNS Resolver Virtual Network Link for KeyVault"
 
   
 }
 
-variable "synapse_private_service_connection_name" {
+
+variable "keyvault_dns_a_record_name" {
     type = string
-    description = "Private Service Connection Name for Azure Synapse"
-  
-}
-
-variable "synapse_dns_network_link_name" {
-    type = string
-    description = "Name of the DNS Resolver Virtual Network Link for Azure Synapse"
-
-  
-}
-
-variable "synapse_dns_a_record_name" {
-    type = string
-    description = "Synapse DNS A Record Name"
-  
-}
-
-
-variable "synapse_managed_private_endpoint_name" {
-    type = string
-    description = "Name of the ADF Managed Network Private Endpoint Connected to Azure Synapse"
+    description = "Key Vault DNS A Record Name"
   
 }

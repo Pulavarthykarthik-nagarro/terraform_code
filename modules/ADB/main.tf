@@ -5,6 +5,7 @@ resource "azurerm_databricks_workspace" "adb" {
     sku = var.adb_sku
     public_network_access_enabled = true
     managed_resource_group_name = var.adb_managed_resource_group_name
+    network_security_group_rules_required = "NoAzureDatabricksRules"
     
     custom_parameters {
         no_public_ip = true

@@ -12,6 +12,10 @@ terraform {
 
 provider "azurerm" {
   features {
+    key_vault {
+      purge_soft_delete_on_destroy    = true
+      recover_soft_deleted_key_vaults = true
+    }
     
   }
 }
@@ -132,9 +136,10 @@ module "privateendpoints" {
   adf_private_endpoint_name = var.adf_private_endpoint_name
   sqlserver_private_endpoint_name = var.sqlserver_private_endpoint_name
   adb_private_endpoint_name = var.adb_private_endpoint_name
-  blob_private_endpoint_name = var.blob_private_endpoint_name
+  #blob_private_endpoint_name = var.blob_private_endpoint_name
   dfs_private_endpoint_name = var.dfs_private_endpoint_name
-  synapse_private_endpoint_name = var.synapse_private_endpoint_name
+  #synapse_private_endpoint_name = var.synapse_private_endpoint_name
+  keyvault_private_endpoint_name = var.keyvault_private_endpoint_name
 
 
 
@@ -143,9 +148,10 @@ module "privateendpoints" {
   adf_private_service_connection_name = var.adf_private_service_connection_name
   sqlserver_private_service_connection_name = var.sqlserver_private_service_connection_name
   adb_private_service_connection_name = var.adb_private_service_connection_name
-  blob_private_service_connection_name = var.blob_private_service_connection_name
+  #blob_private_service_connection_name = var.blob_private_service_connection_name
   dfs_private_service_connection_name = var.dfs_private_service_connection_name
-  synapse_private_service_connection_name = var.synapse_private_service_connection_name
+  #synapse_private_service_connection_name = var.synapse_private_service_connection_name
+  keyvault_private_service_connection_name = var.keyvault_private_service_connection_name
 
 
 
@@ -155,7 +161,8 @@ module "privateendpoints" {
   sqlserver_private_connection_resource_id = module.sqldb.sqlserver_private_connection_resource_id
   adb_private_connection_resource_id = module.adb.adb_private_connection_resource_id
   adls_private_connection_resource_id = module.adls.adls_private_connection_resource_id
-  synapse_private_connection_resource_id = module.synapse.synapse_private_connection_resource_id
+  #synapse_private_connection_resource_id = module.synapse.synapse_private_connection_resource_id
+  keyvault_private_connection_resource_id = module.keyvalut.keyvault_private_connection_resource_id
 
 
 
@@ -164,9 +171,10 @@ module "privateendpoints" {
   adf_dns_network_link_name = var.adf_dns_network_link_name
   sqlserver_dns_network_link_name = var.sqlserver_dns_network_link_name
   adb_dns_network_link_name = var.adb_dns_network_link_name
-  blob_dns_network_link_name = var.blob_dns_network_link_name
+  #blob_dns_network_link_name = var.blob_dns_network_link_name
   dfs_dns_network_link_name = var.dfs_dns_network_link_name
-  synapse_dns_network_link_name = var.synapse_dns_network_link_name
+  #synapse_dns_network_link_name = var.synapse_dns_network_link_name
+  keyvault_dns_network_link_name = var.keyvault_dns_network_link_name
   
 
 
@@ -174,9 +182,10 @@ module "privateendpoints" {
   adf_dns_a_record_name = var.adf_dns_a_record_name
   sql_dns_a_record_name = var.sql_dns_a_record_name
   adb_dns_a_record_name = var.adb_dns_a_record_name
-  blob_dns_a_record_name = var.blob_dns_a_record_name
+  #blob_dns_a_record_name = var.blob_dns_a_record_name
   dfs_dns_a_record_name = var.dfs_dns_a_record_name
-  synapse_dns_a_record_name = var.synapse_dns_a_record_name
+  #synapse_dns_a_record_name = var.synapse_dns_a_record_name
+  keyvault_dns_a_record_name = var.keyvault_dns_a_record_name
 
 
 
@@ -197,13 +206,13 @@ module "datafactory" {
   sqlserver_managed_private_endpoint_name = var.sqlserver_managed_private_endpoint_name
   adb_managed_private_endpoint_name = var.adb_managed_private_endpoint_name
   adls_managed_private_endpoint_name = var.adls_managed_private_endpoint_name
-  synapse_managed_private_endpoint_name = var.synapse_managed_private_endpoint_name
+  #synapse_managed_private_endpoint_name = var.synapse_managed_private_endpoint_name
 
 
   sqlserver_private_connection_resource_id = module.sqldb.sqlserver_private_connection_resource_id
   adb_private_connection_resource_id = module.adb.adb_private_connection_resource_id
   adls_private_connection_resource_id = module.adls.adls_private_connection_resource_id
-  synapse_private_connection_resource_id = module.synapse.synapse_private_connection_resource_id
+  #synapse_private_connection_resource_id = module.synapse.synapse_private_connection_resource_id
   
 
   
@@ -288,9 +297,9 @@ module "adls" {
   region = module.network.region
 
   adls_001_name = var.adls_001_name
-  adls_001_container_name = var.adls_001_container_name
-  adls_001_blob_name = var.adls_001_blob_name
-  adls_001_public_ip = var.adls_001_public_ip
+  #adls_001_container_name = var.adls_001_container_name
+  #adls_001_blob_name = var.adls_001_blob_name
+  #adls_001_public_ip = var.adls_001_public_ip
 
   dfs_name = var.dfs_name
 
@@ -299,16 +308,46 @@ module "adls" {
 }
 
 
-module "synapse" {
-  source = "./modules/AS"
-  synapse_adls_name = var.synapse_adls_name
-  resource_group_name = module.network.resource_group_name
-  region = module.network.region
-  synapse_data_lake_name = var.synapse_data_lake_name
-  synapse_name = var.synapse_name
-  sql_login = var.sql_login
-  sql_password = var.sql_password
-  managed_resource_group_name = var.managed_resource_group_name
+# module "synapse" {
+#   source = "./modules/AS"
+#   synapse_adls_name = var.synapse_adls_name
+#   resource_group_name = module.network.resource_group_name
+#   region = module.network.region
+#   synapse_data_lake_name = var.synapse_data_lake_name
+#   synapse_name = var.synapse_name
+#   sql_login = var.sql_login
+#   sql_password = var.sql_password
+#   managed_resource_group_name = var.managed_resource_group_name
 
   
+# }
+
+
+
+module "keyvalut" {
+
+  source = "./modules/Key"
+
+  keyvalut_name = var.keyvalut_name
+  resource_group_name = module.network.resource_group_name
+  region = module.network.region
+
+}
+
+
+#command code
+
+resource "null_resource" "endpoint_approval" {
+  depends_on = [module.datafactory]
+  provisioner "local-exec" {
+    command     = <<-EOT
+          $sql_id = $(az network private-endpoint-connection list --id ${module.sqldb.sqlserver_private_connection_resource_id} --query "[?contains(properties.privateEndpoint.id, 'vnet')].id" -o json) | ConvertFrom-Json
+          $storage_id = $(az network private-endpoint-connection list --id ${module.adls.adls_private_connection_resource_id} --query "[?contains(properties.privateEndpoint.id, 'vnet')].id" -o json) | ConvertFrom-Json
+          $adb_id = $(az network private-endpoint-connection list --id ${module.adb.adb_private_connection_resource_id} --query "[?contains(properties.privateEndpoint.id, 'vnet')].id" -o json) | ConvertFrom-Json
+          az network private-endpoint-connection approve --id $sql_id --description "Approved in Terraform"
+          az network private-endpoint-connection approve --id $storage_id --description "Approved in Terraform"
+          az network private-endpoint-connection approve --id $adb_id --description "Approved in Terraform"
+        EOT
+    interpreter = ["pwsh", "-Command"]
+  }
 }

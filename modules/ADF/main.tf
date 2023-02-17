@@ -55,7 +55,7 @@ resource "azurerm_data_factory_managed_private_endpoint" "adls_managed_private_e
     name = var.adls_managed_private_endpoint_name
     data_factory_id = azurerm_data_factory.adf.id
     target_resource_id = var.adls_private_connection_resource_id
-    subresource_name = "blob" #need to check
+    subresource_name = "dfs_secondary" #need to check
 
   
 }
@@ -63,11 +63,11 @@ resource "azurerm_data_factory_managed_private_endpoint" "adls_managed_private_e
 
 # #Manged Private Endpoints inside ADF Managed Virtual Network For Azure Synapse
 
-resource "azurerm_data_factory_managed_private_endpoint" "synapse_managed_private_endpoint" {
-    name = var.synapse_managed_private_endpoint_name
-    data_factory_id = azurerm_data_factory.adf.id
-    target_resource_id = var.synapse_private_connection_resource_id
-    subresource_name = "sqlServer" #need to check
+# resource "azurerm_data_factory_managed_private_endpoint" "synapse_managed_private_endpoint" {
+#     name = var.synapse_managed_private_endpoint_name
+#     data_factory_id = azurerm_data_factory.adf.id
+#     target_resource_id = var.synapse_private_connection_resource_id
+#     subresource_name = "sqlServer" #need to check
 
   
-}
+# }

@@ -42,7 +42,7 @@ sqlserver_managed_private_endpoint_name = "sqlservermanagedpvtend"
 
 # ADB Variables
 adb_name = "daademoadb"
-adb_sku = "Premium"
+adb_sku = "premium"
 adb_managed_resource_group_name = "adb-managed-resource"
 adb_virtual_network_name = "adbvnet"
 adb_cidr_block = "10.1.0.0/16"
@@ -112,3 +112,13 @@ synapse_private_service_connection_name = "synapsepvtservice"
 synapse_dns_network_link_name = "synapsednslink"
 synapse_dns_a_record_name = "synapsednsa"
 synapse_managed_private_endpoint_name = "synapsemanagedpvt"
+
+
+
+#Keyvault
+
+keyvalut_name = "demokeyvault"
+keyvault_private_endpoint_name = "keyvaultpvtendpoint"
+keyvault_private_service_connection_name = "keyvaultpvtsveconnec"
+keyvault_dns_network_link_name = "kvdns"
+keyvault_dns_a_record_name = "kvdnsa"
