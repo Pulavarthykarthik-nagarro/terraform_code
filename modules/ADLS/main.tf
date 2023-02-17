@@ -3,7 +3,7 @@ resource "azurerm_storage_account" "adls_001" {
     resource_group_name = var.resource_group_name
     location = var.region
     account_tier = "Standard"
-    account_replication_type = "LRS"
+    account_replication_type = "GZRS"
     public_network_access_enabled = true
     is_hns_enabled = true
 

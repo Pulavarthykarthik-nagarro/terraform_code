@@ -42,7 +42,7 @@ sqlserver_managed_private_endpoint_name = "sqlservermanagedpvtend"
 
 # ADB Variables
 adb_name = "daademoadb"
-adb_sku = "trial"
+adb_sku = "Premium"
 adb_managed_resource_group_name = "adb-managed-resource"
 adb_virtual_network_name = "adbvnet"
 adb_cidr_block = "10.1.0.0/16"
