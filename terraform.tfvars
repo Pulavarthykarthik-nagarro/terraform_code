@@ -1,4 +1,4 @@
-# Common variables
+fgfdgf# Common variables
 resource_group_name = "daa_terraform_infra"
 region = "East US"
 
