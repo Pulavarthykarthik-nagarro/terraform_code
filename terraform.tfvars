@@ -1,5 +1,5 @@
 # Common variables
-resource_group_name = "daa_terraform_infra"
+resource_group_name = "daa_terraform_infra"hgfhfhgh
 region = "East US"
 
 #Shared Vnet Variables 
