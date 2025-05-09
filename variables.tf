@@ -1,4 +1,4 @@
-#Network Variables
+kki#Network Variables
 
 #General Variables
 variable "resource_group_name" {
